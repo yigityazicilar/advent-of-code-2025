@@ -1,54 +1,47 @@
 #!/bin/bash
-
-readarray -t lines < inputs/day3.input
-part1Sum=0
-
-for line in "${lines[@]}";
-do
-    lineLen=${#line} 
-    leftIndex=1
-    leftValue=${line:0:1}
-    rightIndex=$(($lineLen - 2))
-
-    while [ $leftValue -lt ${line:leftIndex:1} ]
-    do
-        leftValue=${line:$((leftIndex++)):1}
-    done
-
-    while [ $leftIndex -lt $rightIndex ]
-    do 
-        nextBiggestIndex=$rightIndex
-        for i in $(seq $rightIndex -1 $leftIndex)
-        do
-            if [[ ${line:$rightIndex:1} -ge ${line:$nextBiggestIndex:1} ]];
-            then
-                nextBiggestIndex=$rightIndex
-            fi
-
-            ((rightIndex--))
-        done
-
-        if [[ $leftValue -lt ${line:$nextBiggestIndex:1} ]];
-        then
-            leftValue=${line:$nextBiggestIndex:1}
-            leftIndex=$(($nextBiggestIndex + 1))
-            rightIndex=$(($lineLen - 2))
-        else
-            break
+function max_string_index {
+    string=$1
+    max=0
+    index=-1
+    for (( i=0; i<${#string}; i++ )); do
+        if (( ${string:i:1} > $max )); then
+            max=${string:i:1}
+            index=$i
         fi
     done
 
-    rightIndex=$(($lineLen - 1))
-    rightValue=${line:$(($lineLen - 1)):1}
-    for i in $(seq $leftIndex $rightIndex)
-    do
-        if [[ $rightValue -lt ${line:$i:1} ]]; 
-        then
-            rightValue=${line:$i:1}
-        fi
-    done
+    echo $index
+}
 
-    part1Sum=$(($part1Sum + ($leftValue * 10 + $rightValue)))
+function max_joltage {
+    local line=$1
+    local batteries_left=$2
+    
+    if (( ${#line} == $batteries_left )); then
+        echo $line
+        return 0
+    fi
+
+    if (( $batteries_left > 1 )); then
+        max_index=$(max_string_index ${line:0:$((${#line} - batteries_left + 1))})
+        value=$((10 ** ($batteries_left - 1) * ${line:max_index:1}))
+        recursion=$(max_joltage ${line:$(($max_index + 1))} $(($batteries_left - 1)))
+        echo $(($value + $recursion)) 
+    else
+        echo ${line:$(max_string_index $line):1}
+    fi
+}
+
+IFS=$'\n'
+input=$(cat "inputs/day3.input")
+read -d '' -a lines <<< "$input"
+
+part1Joltage=0
+part2Joltage=0
+for line in ${lines[@]}; do
+    part1Joltage=$(($part1Joltage + $(max_joltage $line 2)))
+    part2Joltage=$(($part2Joltage + $(max_joltage $line 12)))
 done
 
-echo "Day 3 Part 1: " $part1Sum
+echo "Day 3 Part 1:" $part1Joltage
+echo "Day 3 Part 2:" $part2Joltage
