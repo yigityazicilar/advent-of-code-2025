@@ -5,22 +5,22 @@
 
 #define EXAMPLE_FILE "inputs/day2.example"
 #define INPUT_FILE "inputs/day2.input"
-#define ll long long int
+#define i64 long long int
 
 typedef struct {
-  ll a;
-  ll b;
+  i64 a;
+  i64 b;
 } Range;
 
-int digitCount(long long int n) { return floor(log10(n)) + 1; }
+int digitCount(i64 n) { return floor(log10(n)) + 1; }
 
-int isInRange(ll num, Range range) { return num >= range.a && num <= range.b; }
+int isInRange(i64 num, Range range) { return num >= range.a && num <= range.b; }
 
-ll part1(Range *ranges, int count) {
-  ll sum = 0;
+i64 part1(Range *ranges, int count) {
+  i64 sum = 0;
   for (int i = 0; i < count; i++) {
-    ll a = ranges[i].a;
-    ll b = ranges[i].b;
+    i64 a = ranges[i].a;
+    i64 b = ranges[i].b;
     int aDigits = digitCount(a);
     int bDigits = digitCount(b);
 
@@ -28,9 +28,9 @@ ll part1(Range *ranges, int count) {
       continue;
     }
 
-    ll start = a / pow(10, ceil(aDigits / 2.0));
-    for (ll j = start; j < b; j++) {
-      ll num = j * pow(10, digitCount(j)) + j;
+    i64 start = a / pow(10, ceil(aDigits / 2.0));
+    for (i64 j = start; j < b; j++) {
+      i64 num = j * pow(10, digitCount(j)) + j;
       if (num > b) {
         break;
       }
@@ -44,7 +44,7 @@ ll part1(Range *ranges, int count) {
   return sum;
 }
 
-int isInvalidPart2(ll n) {
+int isInvalidPart2(i64 n) {
   char str[32];
   sprintf(str, "%lld", n);
   int len = strlen(str);
@@ -66,10 +66,10 @@ int isInvalidPart2(ll n) {
   return 0;
 }
 
-ll part2(Range *ranges, int count) {
-  ll sum = 0;
+i64 part2(Range *ranges, int count) {
+  i64 sum = 0;
   for (int i = 0; i < count; i++) {
-    for (ll j = ranges[i].a; j <= ranges[i].b; j++) {
+    for (i64 j = ranges[i].a; j <= ranges[i].b; j++) {
       if (isInvalidPart2(j)) {
         sum += j;
       }
@@ -89,7 +89,7 @@ int main() {
   int count = 0;
   Range *ranges = malloc(capacity * sizeof(Range));
 
-  ll a, b;
+  i64 a, b;
   while (fscanf(input, "%lld-%lld", &a, &b) == 2) {
     if (count >= capacity) {
       capacity *= 2;
