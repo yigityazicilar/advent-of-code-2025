@@ -2,11 +2,9 @@
 from itertools import accumulate
 from functools import reduce
 from typing import Tuple
+import sys
 
-example_file = "inputs/day1.example"
-input_file = "inputs/day1.input"
-
-with open(input_file) as f:
+with open(sys.argv[1]) as f:
     lines = f.readlines()
 
 lines = [line.strip() for line in lines]

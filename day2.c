@@ -3,8 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define EXAMPLE_FILE "inputs/day2.example"
-#define INPUT_FILE "inputs/day2.input"
 #define i64 long long int
 
 typedef struct {
@@ -78,8 +76,8 @@ i64 part2(Range *ranges, int count) {
   return sum;
 }
 
-int main() {
-  FILE *input = fopen(INPUT_FILE, "r");
+int main(int argc, char *argv[]) {
+  FILE *input = fopen(argv[1], "r");
   if (!input) {
     fprintf(stderr, "Error opening file\n");
     return 1;

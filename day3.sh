@@ -33,7 +33,7 @@ function max_joltage {
 }
 
 IFS=$'\n'
-input=$(cat "inputs/day3.input")
+input=$(cat $1)
 read -d '' -a lines <<< "$input"
 
 part1Joltage=0
