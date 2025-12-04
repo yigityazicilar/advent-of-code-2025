@@ -1,4 +1,4 @@
-#usr/bin/env python3
+#!/usr/bin/env python3
 from itertools import accumulate
 from functools import reduce
 from typing import Tuple
