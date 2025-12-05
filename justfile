@@ -1,8 +1,8 @@
 set quiet
 
-solutions: day1 day2 day3 day4
+solutions: day1 day2 day3 day4 day5
 
-examples: (day1 "example") (day2 "example") (day3 "example") (day4 "example")
+examples: (day1 "example") (day2 "example") (day3 "example") (day4 "example") (day5 "example")
 
 day1 type="input":
     @echo "--- Day 1 {{ if type == 'example' { 'Example ' } else { '' } }}(Python) ---"
@@ -23,6 +23,10 @@ day4 type="input":
     ocamlopt -o day4 day4.ml
     ./day4 inputs/day4.{{type}}
     rm day4 day4.cmi day4.cmx day4.o
+
+day5 type="input":
+    @echo "--- Day 5 {{ if type == 'example' { 'Example ' } else { '' } }}(Common Lisp) ---"
+    sbcl --script day5.lisp inputs/day5.{{type}}
 
 new day ext:
     touch day{{day}}.{{ext}}
