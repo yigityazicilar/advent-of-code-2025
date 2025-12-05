@@ -33,6 +33,7 @@ This project uses [Just](https://github.com/casey/just) to standardise running s
 ### Commands
 > [!IMPORTANT]
 > **Input Files Required**
+> 
 > Advent of Code inputs are unique to every user and are **not checked into this repository**.
 >
 > To run the solutions with real data, you must save your specific puzzle input as `inputs/dayX.input` (e.g., `inputs/day1.input`).
