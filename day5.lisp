@@ -42,12 +42,7 @@
 )
 
 (defun combine-ranges (ranges)
-    (let ((len (length ranges)))
-    (let ((result nil))
-    (let ((i 0))
-    (let ((start 0))
-    (let ((end 0))
-    (let ((next-i 0))
+    (let ((len (length ranges)) (result nil) (i 0) (start 0) (end 0) (next-i 0))
     (loop while (< i len)
         do (setq start (first (nth i ranges)) end (second (nth i ranges)) next-i (+ i 1))
         do (loop for j from (+ i 1) to (- len 1)
@@ -56,7 +51,7 @@
         do (push (list start end) result)
         do (setq i next-i))
     (reverse result)
-)))))))
+))
 
 (defun part2 (ranges)
     (if (eq (cdr ranges) nil) 
