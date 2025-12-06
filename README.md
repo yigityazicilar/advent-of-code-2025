@@ -9,7 +9,7 @@ This repository contains solutions for [Advent of Code 2025](https://adventofcod
 |  03   | **Bash**            |      ✓ |
 |  04   | **OCaml**           |      ✓ |
 |  05   | **Common Lisp**     |      ✓ |
-|  06   | **Factor**          |        |
+|  06   | **Factor**          |      ✓ |
 |  07   | **SQL**             |        |
 |  08   | **APL**             |        |
 |  09   | **Idris**           |        |

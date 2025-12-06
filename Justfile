@@ -1,8 +1,8 @@
 set quiet
 
-solutions: day1 day2 day3 day4 day5
+solutions: day1 day2 day3 day4 day5 day6
 
-examples: (day1 "example") (day2 "example") (day3 "example") (day4 "example") (day5 "example")
+examples: (day1 "example") (day2 "example") (day3 "example") (day4 "example") (day5 "example") (day6 "example")
 
 day1 type="input":
     @echo "--- Day 1 {{ if type == 'example' { 'Example ' } else { '' } }}(Python) ---"
@@ -27,6 +27,10 @@ day4 type="input":
 day5 type="input":
     @echo "--- Day 5 {{ if type == 'example' { 'Example ' } else { '' } }}(Common Lisp) ---"
     sbcl --script day5.lisp inputs/day5.{{type}}
+
+day6 type="input":
+    @echo "--- Day 6 {{ if type == 'example' { 'Example ' } else { '' } }}(Factor) ---"
+    ~/.build/factor/factor day6.factor inputs/day6.{{type}}
 
 new day ext:
     touch day{{day}}.{{ext}}
