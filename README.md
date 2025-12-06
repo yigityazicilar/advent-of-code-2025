@@ -2,20 +2,20 @@
 This repository contains solutions for [Advent of Code 2025](https://adventofcode.com/2025). 
 
 ## Schedule
-|  Day  | Language            | Status |
-| :---: | :------------------ | -----: |
-|  01   | **Python**          |      ✓ |
-|  02   | **C**               |      ✓ |
-|  03   | **Bash**            |      ✓ |
-|  04   | **OCaml**           |      ✓ |
-|  05   | **Common Lisp**     |      ✓ |
-|  06   | **Factor**          |      ✓ |
-|  07   | **SQL**             |        |
-|  08   | **APL**             |        |
-|  09   | **Idris**           |        |
-|  10   | **Agda**            |        |
-|  11   | **ARM Assembly**    |        |
-|  12   | **Lambda Calculus** |        |
+|  Day  | Language                              | Status |
+| :---: | :------------------------------------ | -----: |
+|  01   | **Python**                            |      ✓ |
+|  02   | **C**                                 |      ✓ |
+|  03   | **Bash**                              |      ✓ |
+|  04   | **OCaml**                             |      ✓ |
+|  05   | **Common Lisp**                       |      ✓ |
+|  06   | [**Factor**](https://factorcode.org/) |      ✓ |
+|  07   | **SQL**                               |        |
+|  08   | **APL**                               |        |
+|  09   | **Idris**                             |        |
+|  10   | **Agda**                              |        |
+|  11   | **ARM Assembly**                      |        |
+|  12   | **Lambda Calculus**                   |        |
 
 ## Usage
 This project uses [Just](https://github.com/casey/just) to standardise running solutions across different languages/compilers.
@@ -28,6 +28,7 @@ This project uses [Just](https://github.com/casey/just) to standardise running s
     * Bash
     * OCaml (`ocamlopt`)
     * Common Lisp (`sbcl`)
+    * Factor
     * *More to be added as days progress...*
 
 ### Commands
