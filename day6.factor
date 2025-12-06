@@ -18,7 +18,7 @@ IN: day6
     [ get-gaps ] keep
     [ over split-indices [ " " = ] reject ] map nip ;
 
-: operator-array ( n -- n ) last [ first 1string ] map ;
+: operator-array ( n -- n ) last [ [ blank? ] trim ] map ;
 
 : number-array ( n -- n ) but-last flip [ [ [ blank? ] trim string>number ] map ] map ;
 : cephalopod-number-array ( n -- n ) but-last flip [ flip [ >string [ blank? ] trim string>number ] map ] map ; 
