@@ -1,8 +1,8 @@
 set quiet
 
-solutions: day1 day2 day3 day4 day5 day6
+solutions: day1 day2 day3 day4 day5 day6 day7
 
-examples: (day1 "example") (day2 "example") (day3 "example") (day4 "example") (day5 "example") (day6 "example")
+examples: (day1 "example") (day2 "example") (day3 "example") (day4 "example") (day5 "example") (day6 "example") (day7 "example")
 
 day1 type="input":
     @echo "--- Day 1 {{ if type == 'example' { 'Example ' } else { '' } }}(Python) ---"
@@ -31,6 +31,22 @@ day5 type="input":
 day6 type="input":
     @echo "--- Day 6 {{ if type == 'example' { 'Example ' } else { '' } }}(Factor) ---"
     ~/.build/factor/factor day6.factor inputs/day6.{{type}}
+    
+day7 type="input":
+    @echo "--- Day 7 {{ if type == 'example' { 'Example ' } else { '' } }}(SQLite) ---"
+
+    sqlite3 day7.db \
+            -cmd ".parameter set :f 'inputs/day7.{{type}}'" \
+            ".read day7init.sql"
+
+    for i in $(seq 0 $(($(sqlite3 day7.db "SELECT max(y) FROM rows;") - 1))); do \
+        sqlite3 day7.db -cmd ".parameter set :y $i" ".read day7step.sql"; \
+    done 
+
+    @echo "Day 7 Part 1:" $(sqlite3 day7.db "SELECT SUM(is_used) FROM splitters;")
+    @echo "Day 7 Part 2:" $(sqlite3 day7.db "SELECT SUM(strength) FROM beams WHERE y = (SELECT max(y) FROM rows);")
+    
+    rm -f day7.db
 
 new day ext:
     touch day{{day}}.{{ext}}

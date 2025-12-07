@@ -10,7 +10,7 @@ This repository contains solutions for [Advent of Code 2025](https://adventofcod
 |  04   | **OCaml**                             |      ✓ |
 |  05   | **Common Lisp**                       |      ✓ |
 |  06   | [**Factor**](https://factorcode.org/) |      ✓ |
-|  07   | **SQL**                               |        |
+|  07   | **SQLite**                            |      ✓ |
 |  08   | **APL**                               |        |
 |  09   | **Idris**                             |        |
 |  10   | **Agda**                              |        |
@@ -29,6 +29,7 @@ This project uses [Just](https://github.com/casey/just) to standardise running s
     * OCaml (`ocamlopt`)
     * Common Lisp (`sbcl`)
     * Factor
+    * SQLite
     * *More to be added as days progress...*
 
 ### Commands
