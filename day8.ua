@@ -16,8 +16,7 @@ PartOne ← ⍢(
   ⊸=
   ⍜▽(⋅∘)
   ⊃(⋅∘|∘)
-| ⊸<⋕⊡2 &args
-)
+| ⊸<⋕⊡2 &args)
 
 PartOneGroups ← ⊙(◌)◌PartOne 0 Idx SortedEdges
 &p $"Day 8 Part 1: _" /×↙¯3⍆⊕⧻ ⊛PartOneGroups PartOneGroups
