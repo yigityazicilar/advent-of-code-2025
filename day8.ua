@@ -7,14 +7,7 @@ IdxPairs     ← ∧(⊂°□)≡(□▽⊸≡(¬≍ [0 0])) × Mask ⊞(⊂)Idx
 Distances    ← ∧(⊂°□) ≡(□▽⊸≠0) × Mask AllDistances []
 SortedEdges  ← ⊏ ⍏Distances IdxPairs
 
-MergeJunctionBox ← |2.2 (
-  ⊃(°⊂⋅∘|∘)
-  ⊃(∘|⋅⋅∘|⋅∘)
-  ⊸⊏
-  ⊃(⊣⍆|⋅∘|⊢⍆)
-  ⊸=
-  ⍜▽(⋅∘)
-)
+MergeJunctionBox ← |2.2 (⍜▽(⋅∘)⊃(⊸=⊙⋅∘|⋅∘)°⊟⇌⍆˜⊸⊏⊙°⊂)
 
 PartOneGroups ← ⊙◌ ⍥(MergeJunctionBox) ⋕⊡2&args Idx SortedEdges
 &p $"Day 8 Part 1: _" /×↙¯3⍆⊕⧻ ⊛PartOneGroups PartOneGroups
