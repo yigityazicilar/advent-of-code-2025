@@ -11,7 +11,7 @@ This repository contains solutions for [Advent of Code 2025](https://adventofcod
 |  05   | **Common Lisp**                       |      ✓ |
 |  06   | [**Factor**](https://factorcode.org/) |      ✓ |
 |  07   | **SQLite**                            |      ✓ |
-|  08   | **APL**                               |        |
+|  08   | [**Uiua**](https://www.uiua.org/)     |      ✓ |
 |  09   | **Idris**                             |        |
 |  10   | **Agda**                              |        |
 |  11   | **ARM Assembly**                      |        |

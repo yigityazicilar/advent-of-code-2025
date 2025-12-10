@@ -1,8 +1,8 @@
 set quiet
 
-solutions: day1 day2 day3 day4 day5 day6 day7
+solutions: day1 day2 day3 day4 day5 day6 day7 day8
 
-examples: (day1 "example") (day2 "example") (day3 "example") (day4 "example") (day5 "example") (day6 "example") (day7 "example")
+examples: (day1 "example") (day2 "example") (day3 "example") (day4 "example") (day5 "example") (day6 "example") (day7 "example") (day8 "example")
 
 day1 type="input":
     @echo "--- Day 1 {{ if type == 'example' { 'Example ' } else { '' } }}(Python) ---"
@@ -47,6 +47,10 @@ day7 type="input":
     @echo "Day 7 Part 2:" $(sqlite3 day7.db "SELECT SUM(strength) FROM beams WHERE y = (SELECT max(y) FROM rows);")
     
     rm -f day7.db
+    
+day8 type="input":
+    @echo "--- Day 8 {{ if type == 'example' { 'Example ' } else { '' } }}(Uiua) ---"
+    uiua run day8.ua inputs/day8.{{type}} {{ if type == 'example' { '10' } else { '1000' } }}
 
 new day ext:
     touch day{{day}}.{{ext}}
